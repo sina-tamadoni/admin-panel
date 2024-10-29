@@ -29,16 +29,19 @@ function ProductsPage() {
     const productsIds = {
       ids,
     };
-    mutate(productsIds, {
-      onSuccess: () => {
-        toast.success("کالاهای انتخاب شده با موفقیت حذف شدند");
-        setIsShowDeleteAllModal(false);
-      },
-      onError: () => {
-        toast.error("کالاهای انتخاب شده حذف نشدند");
-        setIsShowDeleteAllModal(false);
-      },
-    });
+    mutate(
+      { data: productsIds },
+      {
+        onSuccess: () => {
+          toast.success("کالاهای انتخاب شده با موفقیت حذف شدند");
+          setIsShowDeleteAllModal(false);
+        },
+        onError: () => {
+          toast.error("کالاهای انتخاب شده حذف نشدند");
+          setIsShowDeleteAllModal(false);
+        },
+      }
+    );
   };
   const editHandler = (id) => {
     setIsShowEditModal(true);

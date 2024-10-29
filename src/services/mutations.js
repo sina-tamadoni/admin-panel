@@ -19,7 +19,7 @@ const useAddProduct = () => {
 };
 const useDeleteSelectedItems = () => {
   const queryClient = useQueryClient();
-  const mutationFn = (productsIds) => api.delete("products", productsIds);
+  const mutationFn = (data) => api.delete("products", data);
   const onSuccess = async () => {
     await queryClient.invalidateQueries({ queryKey: ["products"] });
   };
